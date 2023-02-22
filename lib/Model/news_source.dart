@@ -1,5 +1,7 @@
-class NewsFeeds {
-  NewsFeeds({
+// It is an class of an news feed source 
+
+class NewsSource {
+  NewsSource({
     required this.status,
     required this.sources,
   });
@@ -7,8 +9,8 @@ class NewsFeeds {
   final String? status;
   final List<NewsSource> sources;
 
-  factory NewsFeeds.fromJson(Map<String, dynamic> json) {
-    return NewsFeeds(
+  factory NewsSource.fromJson(Map<String, dynamic> json) {
+    return NewsSource(
       status: json["status"],
       sources: json["sources"] == null
           ? []
@@ -18,8 +20,8 @@ class NewsFeeds {
   }
 }
 
-class NewsSource {
-  NewsSource({
+class Source {
+  Source({
     required this.id,
     required this.name,
     required this.description,
@@ -37,8 +39,8 @@ class NewsSource {
   final String? language;
   final String? country;
 
-  factory NewsSource.fromJson(Map<String, dynamic> json) {
-    return NewsSource(
+  factory Source.fromJson(Map<String, dynamic> json) {
+    return Source(
       id: json["id"],
       name: json["name"],
       description: json["description"],
