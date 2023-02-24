@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/News_Models/news_feeds.dart';
-import 'package:news_app/constraints/constraint_colors.dart';
+
+import '../../Model/news_headlines.dart';
+
 
 class NewsWidgets extends StatelessWidget {
-NewsFeeds newsfeed;
+final Article? article;
 
-const NewsWidgets({ Key? key, this.newsfeed }) : super(key: key);
+const NewsWidgets({ Key? key, this.article }) : super(key: key);
 
   @override
   Widget build(BuildContext context){
@@ -18,15 +19,15 @@ const NewsWidgets({ Key? key, this.newsfeed }) : super(key: key);
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                newsfeed!.name!,
-                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20,color:newsBlack ),
+                article!.title!,
+                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20,color:Colors.black ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                newsfeed!.description!,
-                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15,color: newsBlack),
+                article!.description!,
+                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15,color: Colors.black),
               ),
             )
           ],
