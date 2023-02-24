@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/views/news_details.dart';
 
 import '../../Model/news_headlines.dart';
 
@@ -29,7 +30,10 @@ const NewsWidgets({ Key? key, this.article }) : super(key: key);
                 article!.description!,
                 style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15,color: Colors.black),
               ),
-            )
+            ),
+            ElevatedButton(onPressed: (() {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const NewsDetails(),));
+            }), child:const  Text('Read more'))
           ],
         ),
       ),
