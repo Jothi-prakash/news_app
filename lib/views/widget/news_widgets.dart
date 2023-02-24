@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/Model/news_headlines.dart';
+import 'package:news_app/views/news_details.dart';
+
+import '../../Model/news_headlines.dart';
 
 
-
-// ignore: must_be_immutable
 class NewsWidgets extends StatelessWidget {
-  Article newsHeadlines;
+final Article? article;
 
- NewsWidgets({ Key? key, required this.newsHeadlines }) : super(key: key);
+const NewsWidgets({ Key? key, this.article }) : super(key: key);
 
   @override
   Widget build(BuildContext context){
@@ -20,17 +20,20 @@ class NewsWidgets extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                newsHeadlines.title!,
+                article!.title!,
                 style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20,color:Colors.black ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                newsHeadlines.description!,
+                article!.description!,
                 style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15,color: Colors.black),
               ),
-            )
+            ),
+            ElevatedButton(onPressed: (() {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const NewsDetails(),));
+            }), child:const  Text('Read more'))
           ],
         ),
       ),

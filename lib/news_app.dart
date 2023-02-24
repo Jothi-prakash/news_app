@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:news_app/screens/home_screen.dart';
+import 'package:news_app/views/home_screen.dart';
 
 class NewsApp extends StatelessWidget {
 const NewsApp({ Key? key }) : super(key: key);
