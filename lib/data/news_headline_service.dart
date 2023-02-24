@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 
-import '../Model/news_headlines.dart';
+import '../model/news_headlines.dart';
 
 var dio = Dio();
 Future<List<Article>> getNewsHeadlines() async {
@@ -12,12 +12,8 @@ Future<List<Article>> getNewsHeadlines() async {
 
   if (response.statusCode == 200) {
     var newsJsons = response.data;
-    var news = <Article>[];
-    for (var newsJson in newsJsons) {
-      var newsHeadlinesObj = Article.fromJson(newsJson);
-      news.add(newsHeadlinesObj);
-    }
-    return news;
+    var newsHeadlinesObj=NewsHeadlines.fromJson(newsJsons);
+    return newsHeadlinesObj.articles;
   }
   return newsItems;
 }

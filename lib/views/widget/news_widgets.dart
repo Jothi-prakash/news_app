@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/views/news_details.dart';
 
-import '../../Model/news_headlines.dart';
+import '../../model/news_headlines.dart';
 
 
 class NewsWidgets extends StatelessWidget {
@@ -27,7 +27,7 @@ const NewsWidgets({ Key? key, this.article }) : super(key: key);
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                article!.description!,
+                article!.description??'',
                 style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15,color: Colors.black),
               ),
             ),
