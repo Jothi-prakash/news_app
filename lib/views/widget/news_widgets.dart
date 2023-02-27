@@ -13,10 +13,12 @@ const NewsWidgets({ Key? key, this.article }) : super(key: key);
   Widget build(BuildContext context){
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
-      child: Card(        
-        shadowColor: Colors.blueGrey[400],
-        elevation: 6,
-        child: Column(
+      child: ListTile(  
+       onTap: () {
+         Navigator.push(context, MaterialPageRoute(builder: (context) 
+         => const NewsDetails(),));
+       },
+       title:Column(
           children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -24,21 +26,18 @@ const NewsWidgets({ Key? key, this.article }) : super(key: key);
                 article!.title!,
                 style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20,color:Colors.black ),
               ),
-            ),
-            Padding(
+            ),]
+       ),
+          trailing:  Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
                 article!.publishedAt.toString(),
                 style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15,color: Colors.black),
               ),
             ),
-            ElevatedButton(onPressed: (() {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const NewsDetails(),));
-            }), child:const  Text('Read more'))
-          ],
+            
         ),
-      ),
-    );
+      );
   }
 }
 
