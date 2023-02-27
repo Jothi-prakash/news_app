@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/data/news_headline_service.dart';
+import 'package:news_app/data/news_datas.dart';
+
 import 'package:news_app/model/news_headlines.dart';
 import 'package:news_app/views/widget/news_widgets.dart';
 
@@ -30,7 +31,7 @@ Widget getBody() {
           return const Center(child: CircularProgressIndicator());
         }
       },
-      future: getNewsHeadlines(),
+      future: getHeadlineArticles(),
     );
   }
 
