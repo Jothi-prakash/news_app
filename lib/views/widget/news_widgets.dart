@@ -13,7 +13,8 @@ const NewsWidgets({ Key? key, this.article }) : super(key: key);
   Widget build(BuildContext context){
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
-      child: Card(
+      child: Card(        
+        shadowColor: Colors.blueGrey[400],
         elevation: 6,
         child: Column(
           children: [
@@ -27,7 +28,7 @@ const NewsWidgets({ Key? key, this.article }) : super(key: key);
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                article!.description??'',
+                article!.publishedAt.toString(),
                 style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15,color: Colors.black),
               ),
             ),
