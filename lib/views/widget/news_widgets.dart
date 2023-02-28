@@ -45,7 +45,7 @@ const NewsWidgets({ Key? key, this.article }) : super(key: key);
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
-                        article!.publishedAt!.toString(),
+                        article!.getDateString(),
                         style: const TextStyle(fontWeight: FontWeight.bold),
                       ),
                     )

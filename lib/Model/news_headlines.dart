@@ -1,3 +1,5 @@
+import 'package:intl/intl.dart';
+
 class NewsHeadlines {
     NewsHeadlines({
         required this.status,
@@ -52,6 +54,16 @@ class Article {
             publishedAt: DateTime.tryParse(json["publishedAt"]),
             content: json["content"],
         );
+    }
+
+    String getDateString()
+    {
+    if(publishedAt==null)
+    {
+      return'';
+    }
+    return DateFormat('dd MMM').format(publishedAt!);
+
     }
 
 }
