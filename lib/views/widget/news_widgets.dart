@@ -25,17 +25,20 @@ class NewsWidgets extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              article!.urlToImage != null
-                  ? Image.network(
-                      article!.urlToImage!,
-                      width: 100,
-                      height: 100,
-                    )
-                  : Image.asset(
-                      'assets/news.png',
-                      width: 70,
-                      height: 100,
-                    ),
+              Padding(
+                padding: const EdgeInsets.only(left:8.0),
+                child: article!.urlToImage != null
+                    ? Image.network(
+                        article!.urlToImage!,
+                        width: 100,
+                        height: 100,
+                      )
+                    : Image.asset(
+                        'assets/reporter.jpeg',
+                        width: 100,
+                        height: 100,
+                      ),
+              ),
               Expanded(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
