@@ -36,7 +36,7 @@ Future<List<Article>> getHeadlineArticles() async {
 
   // call API to get a response
   var response = await dio.get(
-      'https://newsapi.org/v2/top-headlines?country=in&apiKey=2ed2c11a2fa04b55b14fff672b7e175f');
+      'https://newsapi.org/v2/everything?q=india&apiKey=2ed2c11a2fa04b55b14fff672b7e175f');
 
   if (response.statusCode == 200) {
     //get the json object
