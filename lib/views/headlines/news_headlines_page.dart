@@ -4,8 +4,19 @@ import 'package:news_app/views/widget/news_widgets.dart';
 import '../../data/news_datas.dart';
 import '../../model/news_headlines.dart';
 
-Widget getBody() {
-  return getArticleFuture();
+class NewsHeadlinesPage extends StatefulWidget {
+  const NewsHeadlinesPage({Key? key}) : super(key: key);
+
+  @override
+  // ignore: library_private_types_in_public_api
+  _NewsHeadlinesPageState createState() => _NewsHeadlinesPageState();
+}
+
+class _NewsHeadlinesPageState extends State<NewsHeadlinesPage> {
+  @override
+  Widget build(BuildContext context) {
+    return getArticleFuture();
+  }
 }
 
 Widget getArticleFuture() {

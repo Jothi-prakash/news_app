@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-
 import 'package:news_app/views/bookmark/news_bookmark.dart';
 import 'package:news_app/views/filter/news_filter.dart';
-
 import 'headlines/news_headlines_page.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -42,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget getBottomBodyContent() {
     switch (selectedIndex) {
       case 0:
-        return getBody();
+        return const NewsHeadlinesPage();
       case 1:
         return const NewsBookmark();
       case 2:
