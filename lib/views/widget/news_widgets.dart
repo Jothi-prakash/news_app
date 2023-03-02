@@ -15,7 +15,12 @@ class NewsWidgets extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: GestureDetector(
         onTap: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => NewsDetailPage(newsUrl: article!.url, title:article!.title),));
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => NewsDetailPage(
+                    newsUrl: article!.url, title: article!.title),
+              ));
         },
         child: Card(
           elevation: 10,
@@ -24,14 +29,15 @@ class NewsWidgets extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Text(
                 article!.title!,
-                style: const TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
+                style:
+                    const TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
               ),
             ),
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left:8.0),
+                  padding: const EdgeInsets.only(left: 8.0),
                   child: article!.urlToImage != null
                       ? Image.network(
                           article!.urlToImage!,
@@ -53,7 +59,7 @@ class NewsWidgets extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
-                          article!.description!, 
+                          article!.description!,
                         ),
                       ),
                       Row(
@@ -63,25 +69,33 @@ class NewsWidgets extends StatelessWidget {
                             padding: const EdgeInsets.all(8.0),
                             child: Text(
                               article!.getDateString(),
-                              style: const TextStyle(color: Color.fromARGB(255, 126, 122, 122)),
+                              style: const TextStyle(
+                                  color: Color.fromARGB(255, 126, 122, 122)),
                             ),
                           ),
                           IconButton(
-                    onPressed: (() {
-                      Share.share(article!.url!);
-                    }),
-                    icon: const Icon(Icons.share,color: Colors.grey,size: 15,)),
-                    IconButton(
-                    onPressed: (() {
-                      Share.share(article!.url!);
-                    }),
-                    icon: const Icon(Icons.bookmark,color: Colors.grey,size: 15,))
+                              onPressed: (() {
+                                Share.share(article!.url!);
+                              }),
+                              icon: const Icon(
+                                Icons.share,
+                                color: Colors.grey,
+                                size: 15,
+                              )),
+                          IconButton(
+                              onPressed: (() {
+                                Share.share(article!.url!);
+                              }),
+                              icon: const Icon(
+                                Icons.bookmark,
+                                color: Colors.grey,
+                                size: 15,
+                              ))
                         ],
                       )
                     ],
                   ),
                 ),
-                
               ],
             ),
           ]),
