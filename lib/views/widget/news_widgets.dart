@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/views/news_detail_page.dart';
+import 'package:news_app/views/headlines/news_headlines_deatils.dart';
 import 'package:share_plus/share_plus.dart';
 
 import '../../model/news_headlines.dart';
@@ -53,24 +53,35 @@ class NewsWidgets extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
-                          article!.description!,
+                          article!.description!, 
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          article!.getDateString(),
-                          style: const TextStyle(fontWeight: FontWeight.bold),
-                        ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              article!.getDateString(),
+                              style: const TextStyle(color: Color.fromARGB(255, 126, 122, 122)),
+                            ),
+                          ),
+                          IconButton(
+                    onPressed: (() {
+                      Share.share(article!.url!);
+                    }),
+                    icon: const Icon(Icons.share,color: Colors.grey,size: 15,)),
+                    IconButton(
+                    onPressed: (() {
+                      Share.share(article!.url!);
+                    }),
+                    icon: const Icon(Icons.bookmark,color: Colors.grey,size: 15,))
+                        ],
                       )
                     ],
                   ),
                 ),
-                IconButton(
-                    onPressed: (() {
-                      Share.share(article!.url!);
-                    }),
-                    icon: const Icon(Icons.share))
+                
               ],
             ),
           ]),

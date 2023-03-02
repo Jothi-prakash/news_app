@@ -12,6 +12,7 @@ class NewsDetailPage extends StatelessWidget {
       appBar: AppBar(
         title:  Text(title!),
       ),
+      
       body: WebView(initialUrl: newsUrl),
     );
   }
