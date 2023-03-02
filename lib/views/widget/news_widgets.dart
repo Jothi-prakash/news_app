@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/views/news_detail_page.dart';
+import 'package:news_app/views/headlines/news_deatil_page.dart';
 import 'package:share_plus/share_plus.dart';
 
 import '../../model/news_headlines.dart';
@@ -15,7 +15,12 @@ class NewsWidgets extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: GestureDetector(
         onTap: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => NewsDetailPage(newsUrl: article!.url, title:article!.title),));
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => NewsDetailPage(
+                    newsUrl: article!.url, title: article!.title),
+              ));
         },
         child: Card(
           elevation: 10,
@@ -24,14 +29,15 @@ class NewsWidgets extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Text(
                 article!.title!,
-                style: const TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
+                style:
+                    const TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
               ),
             ),
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left:8.0),
+                  padding: const EdgeInsets.only(left: 8.0),
                   child: article!.urlToImage != null
                       ? Image.network(
                           article!.urlToImage!,
@@ -56,21 +62,40 @@ class NewsWidgets extends StatelessWidget {
                           article!.description!,
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          article!.getDateString(),
-                          style: const TextStyle(fontWeight: FontWeight.bold),
-                        ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              article!.getDateString(),
+                              style: const TextStyle(
+                                  color: Color.fromARGB(255, 126, 122, 122)),
+                            ),
+                          ),
+                          IconButton(
+                              onPressed: (() {
+                                Share.share(article!.url!);
+                              }),
+                              icon: const Icon(
+                                Icons.share,
+                                color: Colors.grey,
+                                size: 15,
+                              )),
+                          IconButton(
+                              onPressed: (() {
+                                Share.share(article!.url!);
+                              }),
+                              icon: const Icon(
+                                Icons.bookmark,
+                                color: Colors.grey,
+                                size: 15,
+                              ))
+                        ],
                       )
                     ],
                   ),
                 ),
-                IconButton(
-                    onPressed: (() {
-                      Share.share(article!.url!);
-                    }),
-                    icon: const Icon(Icons.share))
               ],
             ),
           ]),

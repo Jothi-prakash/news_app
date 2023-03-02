@@ -1,4 +1,4 @@
-// It is an class of an news feed source 
+// It is an class of an news feed source
 
 class NewsSource {
   NewsSource({

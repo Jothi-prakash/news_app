@@ -12,7 +12,7 @@ Future<List<Article>> getNewsHeadlines() async {
 
   if (response.statusCode == 200) {
     var newsJsons = response.data;
-    var newsHeadlinesObj=NewsHeadlines.fromJson(newsJsons);
+    var newsHeadlinesObj = NewsHeadlines.fromJson(newsJsons);
     return newsHeadlinesObj.articles;
   }
   return newsItems;
