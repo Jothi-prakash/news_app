@@ -45,7 +45,7 @@ Future<List<Article>> getHeadlineArticles() async {
     var jsonString = jsonEncode(jsonObj);
     //write the contents to file
     fileObj.writeAsStringSync(jsonString);
-// convert json to news headlines
+    // convert json to news headlines
     var newsHeadlines = NewsHeadlines.fromJson(jsonObj);
     //return list of articles
     return newsHeadlines.articles;
