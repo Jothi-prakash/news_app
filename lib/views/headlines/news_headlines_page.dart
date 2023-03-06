@@ -43,6 +43,7 @@ Widget getListView(List<Article>? data) {
   for (var articles in data) {
     var articleWidget = NewsWidgets(
       article: articles,
+      showBookmarks: true,
     );
     articleWidgets.add(articleWidget);
   }
