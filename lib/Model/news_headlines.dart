@@ -57,6 +57,20 @@ class Article {
     );
   }
 
+  Map<String, dynamic> toJson() {
+    var m = {
+      'source': source!.toJson(),
+      'author': author,
+      'title': title,
+      'description': description,
+      'url': url,
+      'urlToImage': urlToImage,
+      'publishedAt': publishedAt.toString(),
+      'content': content
+    };
+    return m;
+  }
+
   String getDateString() {
     if (publishedAt == null) {
       return '';
@@ -79,5 +93,13 @@ class Source {
       id: json["id"],
       name: json["name"],
     );
+  }
+
+  Map<String, dynamic> toJson() {
+    var m = {
+      'id': id,
+      'name': name,
+    };
+    return m;
   }
 }

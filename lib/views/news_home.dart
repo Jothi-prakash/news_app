@@ -16,7 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('News')),
+      appBar: AppBar(title: Text(getAppBarTitle())),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: selectedIndex,
         items: const [
@@ -35,6 +35,18 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: getBottomBodyContent(),
     );
+  }
+
+  String getAppBarTitle() {
+    switch (selectedIndex) {
+      case 0:
+        return 'News';
+      case 1:
+        return 'Bookmarks';
+      case 2:
+        return 'Filter';
+    }
+    return 'News';
   }
 
   Widget getBottomBodyContent() {

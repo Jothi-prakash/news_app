@@ -11,6 +11,13 @@ Future<String> getFullFilePath() async {
   return '$appDirectory/$fileName';
 }
 
+Future<bool> isArticleBookmarked(Article article) async {
+  var allBookmarks = await getBookmarks();
+  var articleExists =
+      allBookmarks.any((element) => article.title == element.title);
+  return articleExists;
+}
+
 Future<bool> doesBookmarkExists() async {
   var fullFilePath = await getFullFilePath();
   var fileObj = File(fullFilePath);
@@ -36,6 +43,7 @@ Future<bool> addBookmark(Article article) async {
   var fileObj = File(fullFilePath);
   var bookmarks = await getBookmarks();
   bookmarks.add(article);
+
   var bookmarkString = jsonEncode(bookmarks);
   fileObj.writeAsStringSync(bookmarkString);
   return true;
@@ -45,7 +53,7 @@ Future<bool> removeBookmark(Article article) async {
   var bookmarks = await getBookmarks();
 
   bookmarks.removeWhere((element) => element.title == article.title);
-  
+
   var bookmarkString = jsonEncode(bookmarks);
   var fullFilePath = await getFullFilePath();
   var fileObj = File(fullFilePath);
