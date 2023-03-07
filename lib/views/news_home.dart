@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/views/bookmark/news_bookmark.dart';
-import 'package:news_app/views/filter/news_filter.dart';
+import 'package:news_app/views/filter/news_filter_view.dart';
 import 'headlines/news_headlines_page.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -56,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
       case 1:
         return const NewsBookmark();
       case 2:
-        return const NewsFilter();
+        return  const NewsFilterView();
     }
     return const HomeScreen();
   }
